@@ -14,6 +14,9 @@ jobs:
           name: Add GolangCI-Lint to PATH
           command: echo 'export PATH=$(go env GOPATH)/bin:$PATH' >> $BASH_ENV
       - run:
+          name: Download Dependencies
+          command: go mod download
+      - run:
           name: Run GolangCI-Lint
           command: golangci-lint run
       - run:
