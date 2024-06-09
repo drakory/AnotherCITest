@@ -1,6 +1,7 @@
 run:
   timeout: 5m
 
+
 linters:
   enable:
     - deadcode
@@ -8,6 +9,8 @@ linters:
     - gocyclo
     - revive
     - staticcheck
+  disable:
+    - go-critic
 
 linters-settings:
   gosec:
