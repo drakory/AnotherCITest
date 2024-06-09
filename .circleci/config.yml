@@ -9,7 +9,10 @@ jobs:
       - run:
           name: Install GolangCI-Lint
           command: |
-            curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s latest
+            curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin v1.47.3
+      - run:
+          name: Add GolangCI-Lint to PATH
+          command: echo 'export PATH=$(go env GOPATH)/bin:$PATH' >> $BASH_ENV
       - run:
           name: Run GolangCI-Lint
           command: golangci-lint run
@@ -22,4 +25,3 @@ workflows:
   build_and_test:
     jobs:
       - lint
-
