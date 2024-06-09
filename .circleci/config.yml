@@ -3,7 +3,7 @@ version: 2.1
 jobs:
   lint:
     docker:
-      - image: circleci/golang:1.16
+      - image: golang:1.22
     steps:
       - checkout
       - run:
