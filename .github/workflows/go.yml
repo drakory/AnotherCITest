@@ -54,12 +54,4 @@ jobs:
         with:
           context: .
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/your-image-name:latest
-
-workflows:
-  version: 2
-  build_and_test_and_push:
-    jobs:
-      - build_and_test
-      - build_and_push_docker:
-          needs: build_and_test
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/test_mitra:latest
