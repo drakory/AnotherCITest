@@ -9,8 +9,6 @@ linters:
     - gocyclo
     - revive
     - staticcheck
-  disable:
-    - go-critic
 
 linters-settings:
   gosec:
