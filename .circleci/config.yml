@@ -21,7 +21,7 @@ jobs:
           command: go mod download
       - run:
           name: Run GolangCI-Lint
-          command: golangci-lint run --config .golangci.yml
+          command: golangci/golangci-lint run
       - run:
           name: Run Tests
           command: go test ./...
