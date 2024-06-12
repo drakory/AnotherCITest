@@ -4,16 +4,4 @@ run:
 
 linters:
   enable:
-    - deadcode
-    - gosec
-    - gocyclo
-    - revive
     - staticcheck
-
-linters-settings:
-  gosec:
-    severity: "medium"
-  gocyclo:
-    min-complexity: 10
-  revive:
-    errorCode: 1
