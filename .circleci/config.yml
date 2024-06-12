@@ -1,3 +1,5 @@
+orbs:
+  golangci-lint: valimail/golangci-lint@volatile
 version: 2.1
 
 jobs:
@@ -21,7 +23,7 @@ jobs:
           command: go mod download
       - run:
           name: Run GolangCI-Lint
-          command: golangci/golangci-lint run
+          command: golangci-lint/lint
       - run:
           name: Run Tests
           command: go test ./...
