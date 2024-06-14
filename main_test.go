@@ -1,12 +1,14 @@
 package main
 
 import (
-	//"bytes"
-	//"encoding/json"
-	//"net/http"
-	//"net/http/httptest"
+	"bookapi/entity"
+	"bytes"
+	"encoding/json"
+	"net/http"
+	"net/http/httptest"
 	"testing"
-	//"github.com/stretchr/testify/assert"
+
+	"github.com/go-playground/assert/v2"
 )
 
 func TestAddition(t *testing.T){
@@ -18,16 +20,19 @@ func TestAddition(t *testing.T){
 	}
 }
 
-/*func TestInsertBook(t *testing.T) {
+func TestInsertBook(t *testing.T) {
 	router := setupRouter()
 
 	// Créez une requête POST
 	w := httptest.NewRecorder()
-	payload := map[string]string{
-		"title":  "Test Book",
-		"author": "Test Author",
+	book := entity.Book{
+		Title:       "Test Book",
+		Year:        "2023",
+		Description: "A book used for testing",
+		BookCover:   "https://example.com/cover.jpg",
+		UserID:      1, // Assurez-vous que cet utilisateur existe dans la base de données pour le test
 	}
-	jsonValue, _ := json.Marshal(payload)
+	jsonValue, _ := json.Marshal(book)
 	req, _ := http.NewRequest("POST", "/api/v1/book/", bytes.NewBuffer(jsonValue))
 	req.Header.Set("Content-Type", "application/json")
 
@@ -39,7 +44,7 @@ func TestAddition(t *testing.T){
 	// Vous pouvez aussi vérifier le corps de la réponse ici
 }
 
-func TestGetAllBooks(t *testing.T) {
+/*func TestGetAllBooks(t *testing.T) {
 	router := setupRouter()
 
 	// Créez une requête GET
