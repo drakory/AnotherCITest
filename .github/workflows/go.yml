@@ -24,6 +24,9 @@ jobs:
       - name: Build
         run: go build -v ./...
 
+      - name: Update Mod
+        run: go mod tidy
+
       - name: Qodana Scan
         uses: JetBrains/qodana-action@v2024.1
         env:
