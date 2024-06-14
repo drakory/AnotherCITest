@@ -29,8 +29,8 @@ jobs:
         env:
           QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
 
-      #- name: Run tests
-        #run: go test ./... -v
+      - name: Run tests
+        run: go test -v ./...
 
   build_and_push_docker:
     runs-on: ubuntu-latest
