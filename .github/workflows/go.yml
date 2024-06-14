@@ -36,7 +36,7 @@ jobs:
 
   unittest:
     runs-on: ubuntu-latest
-    needs: build
+    needs: qodana
 
     steps:
       - name: Run tests
@@ -44,7 +44,7 @@ jobs:
 
   build_and_push_docker:
     runs-on: ubuntu-latest
-    needs: build_and_test
+    needs: unittest
 
     steps:
       - name: Checkout repository
