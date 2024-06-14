@@ -3,18 +3,15 @@ package main
 import (
 	"bookapi/config"
 	"bookapi/controller"
-	"bookapi/entity"
-
 	"github.com/gin-gonic/gin"
 )
 
-var Users []entity.User
+func Addition(a int , b int) int {
+	c := a + b
+	return c
+}
 
-func main() {
-	config.ConnectDB()
-
-	defer config.CloseDb()
-
+func setupRouter() *gin.Engine {
 	router := gin.Default()
 	v1 := router.Group("/api/v1")
 	{
@@ -37,5 +34,16 @@ func main() {
 		}
 
 	}
-	router.Run(":3000")
+	return router
+} 
+
+func main() {
+	config.ConnectDB()
+
+	defer config.CloseDb()
+	router := setupRouter()
+	err := router.Run(":3000")
+	if err != nil {
+		panic("Error router.run")
+	}
 }
